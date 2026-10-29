@@ -23,20 +23,40 @@ jobs:
           set -euo pipefail
           curl -fsSL https://raw.githubusercontent.com/dahan8473/snake-and-commits/v1/generate.py -o generate.py
 
-          # Snake body normally reuses contribution greens, so it looks like a single glowing head.
-          # Recolor the snake to coral so growth is obvious on the green grid.
+          # 1) Light empty cells should be #ebedf0 (GitHub light), not dark.
+          # 2) Snake body must stay coral so it doesn't blend into contribution greens.
           python3 - <<'PY'
           from pathlib import Path
           path = Path("generate.py")
           text = path.read_text(encoding="utf-8")
           replacements = [
               (
-                  '        snake="#39d353", head="#b7ffd0",\n        ramp=[(1, "#8affc1"), (4, "#39d353"), (10, "#26a641"), (21, "#006d32")],',
-                  '        snake="#ff7b72", head="#ffd8d3",\n        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],',
+                  '''    "green": dict(
+        levels=["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+        snake="#39d353", head="#b7ffd0",
+        ramp=[(1, "#8affc1"), (4, "#39d353"), (10, "#26a641"), (21, "#006d32")],
+        text="#7d8590", frame_bg="#0d1117", frame_border="#30363d",
+    ),''',
+                  '''    "green": dict(
+        levels=["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+        snake="#ff7b72", head="#ffd8d3",
+        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],
+        text="#57606a", frame_bg="#ffffff", frame_border="#d0d7de",
+    ),''',
               ),
               (
-                  '        snake="#39ff7a", head="#d6ffe4",\n        ramp=[(1, "#d6ffe4"), (4, "#39ff7a"), (10, "#1fb84e"), (21, "#12742f")],',
-                  '        snake="#ff7b72", head="#ffd8d3",\n        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],',
+                  '''    "matrix": dict(
+        levels=["#0a0f0a", "#0d3d1a", "#12742f", "#1fb84e", "#39ff7a"],
+        snake="#39ff7a", head="#d6ffe4",
+        ramp=[(1, "#d6ffe4"), (4, "#39ff7a"), (10, "#1fb84e"), (21, "#12742f")],
+        text="#3fa060", frame_bg="#000000", frame_border="#123d1f",
+    ),''',
+                  '''    "matrix": dict(
+        levels=["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+        snake="#ff7b72", head="#ffd8d3",
+        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],
+        text="#7d8590", frame_bg="#0d1117", frame_border="#30363d",
+    ),''',
               ),
           ]
           for old, new in replacements:

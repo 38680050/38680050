@@ -16,21 +16,43 @@ jobs:
       contents: write
 
     steps:
-      - name: Generate light snake
-        uses: dahan8473/snake-and-commits@v1
-        with:
-          github_user: ${{ github.repository_owner }}
-          output: dist/github-contribution-grid-snake.svg
-          theme: green
-          counter: true
+      - name: Generate growing snake (high-contrast body)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl -fsSL https://raw.githubusercontent.com/dahan8473/snake-and-commits/v1/generate.py -o generate.py
 
-      - name: Generate dark snake
-        uses: dahan8473/snake-and-commits@v1
-        with:
-          github_user: ${{ github.repository_owner }}
-          output: dist/github-contribution-grid-snake-dark.svg
-          theme: matrix
-          counter: true
+          # Snake body normally reuses contribution greens, so it looks like a single glowing head.
+          # Recolor the snake to coral so growth is obvious on the green grid.
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path("generate.py")
+          text = path.read_text(encoding="utf-8")
+          replacements = [
+              (
+                  '        snake="#39d353", head="#b7ffd0",\n        ramp=[(1, "#8affc1"), (4, "#39d353"), (10, "#26a641"), (21, "#006d32")],',
+                  '        snake="#ff7b72", head="#ffd8d3",\n        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],',
+              ),
+              (
+                  '        snake="#39ff7a", head="#d6ffe4",\n        ramp=[(1, "#d6ffe4"), (4, "#39ff7a"), (10, "#1fb84e"), (21, "#12742f")],',
+                  '        snake="#ff7b72", head="#ffd8d3",\n        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],',
+              ),
+          ]
+          for old, new in replacements:
+              if old not in text:
+                  raise SystemExit(f"theme patch failed, pattern not found:\n{old}")
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding="utf-8")
+          PY
+
+          mkdir -p dist
+          python3 generate.py --user "${{ github.repository_owner }}" \
+            --output dist/github-contribution-grid-snake.svg \
+            --theme green --no-counter
+          python3 generate.py --user "${{ github.repository_owner }}" \
+            --output dist/github-contribution-grid-snake-dark.svg \
+            --theme matrix --no-counter
 
       - name: Push snake to output branch
         uses: crazy-max/ghaction-github-pages@v4

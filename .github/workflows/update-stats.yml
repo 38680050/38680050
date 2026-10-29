@@ -25,11 +25,17 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          # role includes qualitest-hq org repos in Total Stars Earned
           options: >-
-            username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636&role=OWNER,ORGANIZATION_MEMBER
+            username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636
           path: assets/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Action's role= param is unreliable with GITHUB_TOKEN; patch stars explicitly.
+      - name: Patch stats stars (personal + org)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STATS_STAR_ORGS: qualitest-hq
+        run: node scripts/patch-stats-stars.mjs ${{ github.repository_owner }} assets/stats.svg
 
       - name: Generate personal top languages
         uses: stats-organization/github-readme-stats-action@v2

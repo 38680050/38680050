@@ -56,11 +56,17 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
 
 ### 📊 GitHub 数据
 
-> 左侧「最常用语言」只统计**个人名下仓库**；质衡主仓在组织 [`qualitest-hq`](https://github.com/qualitest-hq)，语言以 **Java / Vue / TypeScript** 为主，不会出现在这张个人统计卡里。
-
 <div align="center">
   <img height="165" src="https://github-stats-extended.vercel.app/api?username=38680050&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636" alt="stats"/>
-  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs/?username=38680050&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9" alt="langs"/>
+</div>
+
+<br/>
+
+<p align="center"><b>语言双卡片</b>：个人公开仓（左） · 质衡主仓 <a href="https://github.com/qualitest-hq/qualitest">qualitest-hq/qualitest</a>（右）</p>
+
+<div align="center">
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs/?username=38680050&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&custom_title=Personal%20Languages" alt="personal langs"/>
+  <img height="165" src="https://raw.githubusercontent.com/38680050/38680050/main/assets/qualitest-langs.svg" alt="qualitest langs"/>
 </div>
 
 <br/>
@@ -68,14 +74,6 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
 <div align="center">
   <img src="https://streak-stats.demolab.com/?user=38680050&theme=github-dark-blue&hide_border=true&background=0D1117&ring=238636&fire=3FB950&currStreakLabel=58A6FF" alt="streak"/>
 </div>
-
-<p align="center">
-  <b>质衡 Qualitest 主仓语言</b><br/>
-  <img src="https://img.shields.io/badge/Java-后端主力-ED8B00?style=flat-square&logo=openjdk&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Vue-前端主力-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-工具链-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JavaScript-配套-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-</p>
 
 ---
 

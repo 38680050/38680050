@@ -1,0 +1,80 @@
+name: Update Profile Stats
+
+on:
+  schedule:
+    # 每天 UTC 16:00 ≈ 北京时间 00:00
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: >-
+            username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636
+          path: assets/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate personal top languages
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: >-
+            username=${{ github.repository_owner }}&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&custom_title=Personal%20Languages&langs_count=6
+          path: assets/personal-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate excel-formula-calculation pin
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: >-
+            username=${{ github.repository_owner }}&repo=excel-formula-calculation&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9
+          path: assets/pin-excel-formula-calculation.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate qualitest pin
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: >-
+            username=qualitest-hq&repo=qualitest&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9
+          path: assets/pin-qualitest.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate streak card
+        run: |
+          curl -fsSL \
+            "https://streak-stats.demolab.com/?user=${{ github.repository_owner }}&theme=github-dark-blue&hide_border=true&background=0D1117&ring=238636&fire=3FB950&currStreakLabel=58A6FF" \
+            -o assets/streak.svg
+          # 粗校验：必须是 SVG
+          grep -q "<svg" assets/streak.svg
+
+      - name: Generate Qualitest / org languages card
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/generate-org-langs.mjs qualitest-hq assets/qualitest-langs.svg "Qualitest Languages"
+
+      - name: Commit updated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/*.svg
+          if git diff --staged --quiet; then
+            echo "No asset changes"
+            exit 0
+          fi
+          git commit -m "chore: refresh profile stats cards"
+          git push

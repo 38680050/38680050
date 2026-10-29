@@ -57,14 +57,14 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
 ### 📊 GitHub 数据
 
 <div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=38680050&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636" alt="stats"/>
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=38680050&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9" alt="langs"/>
+  <img height="165" src="https://github-stats-extended.vercel.app/api?username=38680050&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636" alt="stats"/>
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs/?username=38680050&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9" alt="langs"/>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=38680050&theme=github-dark-blue&hide_border=true&background=0D1117&ring=238636&fire=3FB950&currStreakLabel=58A6FF" alt="streak"/>
+  <img src="https://streak-stats.demolab.com/?user=38680050&theme=github-dark-blue&hide_border=true&background=0D1117&ring=238636&fire=3FB950&currStreakLabel=58A6FF" alt="streak"/>
 </div>
 
 ---
@@ -78,10 +78,10 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
 
 <div align="center">
   <a href="https://github.com/38680050/excel-formula-calculation">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=38680050&repo=excel-formula-calculation&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9" alt="excel-formula-calculation"/>
+    <img src="https://github-stats-extended.vercel.app/api/pin/?username=38680050&repo=excel-formula-calculation&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9" alt="excel-formula-calculation"/>
   </a>
   <a href="https://github.com/38680050/spider">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=38680050&repo=spider&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9" alt="spider"/>
+    <img src="https://github-stats-extended.vercel.app/api/pin/?username=38680050&repo=spider&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9" alt="spider"/>
   </a>
 </div>
 

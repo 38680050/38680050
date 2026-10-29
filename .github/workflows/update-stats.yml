@@ -25,8 +25,9 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
+          # role includes qualitest-hq org repos in Total Stars Earned
           options: >-
-            username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636
+            username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636&role=OWNER,ORGANIZATION_MEMBER
           path: assets/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 

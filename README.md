@@ -78,8 +78,7 @@ Hi，我是 **kanfengjingren（38680050）**，偏全栈的开发者：以 **Jav
 ### 📊 GitHub 数据
 
 > 卡片由 Actions **每日刷新**（也可手动跑 `Update Profile Stats`）。  
-> 上方 Stats 的提交数已含公开组织贡献；Stars 仍仅计个人名下仓库。  
-> 语言分布：**个人公开仓（全量）** + 组织 [qualitest-hq](https://github.com/qualitest-hq) **按我增删行占比加权**。
+> Stats 的 Stars / 语言相关会计入个人公开仓 + 组织 [qualitest-hq](https://github.com/qualitest-hq) 公开仓；语言明细仍按「个人全量 + 组织作者加权」。  
 
 <div align="center">
   <img height="165" src="https://raw.githubusercontent.com/38680050/38680050/main/assets/stats.svg" alt="stats"/>

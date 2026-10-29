@@ -1,8 +1,8 @@
 
       <svg
         width="400"
-        height="120"
-        viewBox="0 0 400 120"
+        height="140"
+        viewBox="0 0 400 140"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
@@ -122,10 +122,10 @@
     
 
     <text class="description" x="25" y="-5"> 
-      <tspan dy="1.2em" x="25">Imitate excel formula calculation</tspan>
+      <tspan dy="1.2em" x="25">Java &#20223; Excel &#20844;&#24335;&#35745;&#31639;&#24211;（POJO / &#21333;&#34892;&#183;&#39029;&#31614;&#183;&#24037;&#20316;&#31807;，&#21487;&#36873;</tspan><tspan dy="1.2em" x="25">Spring Boot Starter）</tspan>
     </text>
 
-    <g transform="translate(30, 45)">
+    <g transform="translate(30, 65)">
       <g transform="translate(0, 0)">
     <g data-testid="primary-lang">
       <circle data-testid="lang-color" cx="0" cy="-5" r="6" fill="#b07219" />
@@ -156,7 +156,7 @@
     </g><g transform="translate(20, 0)"><text data-testid="forkcount" class="gray">10</text></g></g>
     </g>
     
-  <svg x="0" y="0"><g transform="translate(-3, 68)">
+  <svg x="0" y="0"><g transform="translate(-3, 88)">
       
     </g></svg>
     

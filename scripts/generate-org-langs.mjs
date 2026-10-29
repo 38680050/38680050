@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 /**
- * Aggregate language bytes from a GitHub org's public repos and render a compact SVG card.
- * Usage: node scripts/generate-org-langs.mjs [org] [outPath] [title]
+ * Aggregate language bytes from a GitHub org's public repos, weighted by
+ * a specific author's share of additions (fallback: commits).
+ *
+ * Usage: node scripts/generate-org-langs.mjs [org] [outPath] [title] [author]
  */
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 
 const ORG = process.argv[2] || "qualitest-hq";
 const OUT = process.argv[3] || "assets/qualitest-langs.svg";
-const TITLE = process.argv[4] || "Qualitest Languages";
+const TITLE = process.argv[4] || "My Qualitest Share";
+const AUTHOR = process.argv[5] || process.env.GITHUB_REPOSITORY_OWNER || "38680050";
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
 const TOP_N = 6;
 
@@ -29,19 +32,34 @@ const COLORS = {
   "Go Template": "#00ADD8",
 };
 
-async function gh(path) {
-  const res = await fetch(`https://api.github.com${path}`, {
-    headers: {
-      Accept: "application/vnd.github+json",
-      "User-Agent": "38680050-profile-org-langs",
-      "X-GitHub-Api-Version": "2022-11-28",
-      ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`GitHub API ${path} => ${res.status} ${await res.text()}`);
+async function sleep(ms) {
+  await new Promise((r) => setTimeout(r, ms));
+}
+
+async function gh(path, { allow202 = false } = {}) {
+  for (let attempt = 1; attempt <= 6; attempt++) {
+    const res = await fetch(`https://api.github.com${path}`, {
+      headers: {
+        Accept: "application/vnd.github+json",
+        "User-Agent": "38680050-profile-org-langs",
+        "X-GitHub-Api-Version": "2022-11-28",
+        ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
+      },
+    });
+
+    if (allow202 && res.status === 202) {
+      await sleep(1500 * attempt);
+      continue;
+    }
+
+    if (res.status === 204) return null;
+
+    if (!res.ok) {
+      throw new Error(`GitHub API ${path} => ${res.status} ${await res.text()}`);
+    }
+    return res.json();
   }
-  return res.json();
+  return null;
 }
 
 async function listPublicRepos(org) {
@@ -55,6 +73,40 @@ async function listPublicRepos(org) {
     if (batch.length < 100) break;
   }
   return repos;
+}
+
+async function authorWeight(owner, repo, login) {
+  const stats = await gh(`/repos/${owner}/${repo}/stats/contributors`, {
+    allow202: true,
+  });
+  if (!Array.isArray(stats) || stats.length === 0) {
+    const commits = await gh(
+      `/repos/${owner}/${repo}/commits?author=${encodeURIComponent(login)}&per_page=1`,
+    );
+    if (Array.isArray(commits) && commits.length > 0) return 1;
+    return 0;
+  }
+
+  let myAdds = 0;
+  let myCommits = 0;
+  let allAdds = 0;
+  let allCommits = 0;
+
+  for (const row of stats) {
+    const adds = (row.weeks || []).reduce((s, w) => s + (w.a || 0), 0);
+    const commits = row.total || 0;
+    allAdds += adds;
+    allCommits += commits;
+    if (row.author?.login?.toLowerCase() === login.toLowerCase()) {
+      myAdds = adds;
+      myCommits = commits;
+    }
+  }
+
+  if (myCommits <= 0 && myAdds <= 0) return 0;
+  if (allAdds > 0) return Math.min(1, myAdds / allAdds);
+  if (allCommits > 0) return Math.min(1, myCommits / allCommits);
+  return 0;
 }
 
 function escapeXml(s) {
@@ -107,17 +159,22 @@ function renderSvg(title, rows, sourceLabel) {
 
 const repos = await listPublicRepos(ORG);
 const totals = Object.create(null);
+let included = 0;
 
 for (const repo of repos) {
+  const weight = await authorWeight(ORG, repo.name, AUTHOR);
+  if (weight <= 0) continue;
   const langs = await gh(`/repos/${ORG}/${repo.name}/languages`);
-  for (const [name, bytes] of Object.entries(langs)) {
-    totals[name] = (totals[name] || 0) + bytes;
+  for (const [name, bytes] of Object.entries(langs || {})) {
+    totals[name] = (totals[name] || 0) + bytes * weight;
   }
+  included += 1;
+  console.log(`${ORG}/${repo.name}: weight=${(weight * 100).toFixed(1)}%`);
 }
 
 const grand = Object.values(totals).reduce((a, b) => a + b, 0);
 if (!grand) {
-  throw new Error(`No language bytes found for org ${ORG}`);
+  throw new Error(`No author-weighted language bytes for ${AUTHOR} in ${ORG}`);
 }
 
 const ranked = Object.entries(totals)
@@ -130,7 +187,7 @@ const ranked = Object.entries(totals)
     color: COLORS[name] || "#8B949E",
   }));
 
-const sourceLabel = `from ${ORG} · ${repos.length} public repos · auto`;
+const sourceLabel = `${AUTHOR} @ ${ORG} · ${included}/${repos.length} repos · author-weighted`;
 const svg = renderSvg(TITLE, ranked, sourceLabel);
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(OUT, svg, "utf8");

@@ -65,10 +65,26 @@ jobs:
           # 粗校验：必须是 SVG
           grep -q "<svg" assets/streak.svg
 
-      - name: Generate Qualitest / org languages card
+      - name: Generate Qualitest author-weighted languages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/generate-org-langs.mjs qualitest-hq assets/qualitest-langs.svg "Qualitest Languages"
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+        run: >
+          node scripts/generate-org-langs.mjs
+          qualitest-hq
+          assets/qualitest-langs.svg
+          "My Qualitest Share"
+          ${{ github.repository_owner }}
+
+      - name: Generate combined languages (personal + org share)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          node scripts/generate-my-langs.mjs
+          ${{ github.repository_owner }}
+          qualitest-hq
+          assets/my-langs.svg
+          "My Languages"
 
       - name: Commit updated assets
         run: |

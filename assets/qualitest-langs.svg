@@ -1,25 +1,25 @@
-<svg width="300" height="165" viewBox="0 0 300 165" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Qualitest Languages">
-  <title>Qualitest Languages</title>
+<svg width="300" height="165" viewBox="0 0 300 165" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="My Qualitest Share">
+  <title>My Qualitest Share</title>
   <rect width="300" height="165" rx="4.5" fill="#0D1117"/>
-  <text x="25" y="32" fill="#58A6FF" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="18" font-weight="600">Qualitest Languages</text>
+  <text x="25" y="32" fill="#58A6FF" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="18" font-weight="600">My Qualitest Share</text>
   <rect x="25" y="50" width="250" height="8" rx="4" fill="#161B22"/>
-  <rect x="25" y="50" width="151" height="8" fill="#b07219"/>
-  <rect x="176" y="50" width="53" height="8" fill="#41b883"/>
-  <rect x="229" y="50" width="27" height="8" fill="#3178c6"/>
+  <rect x="25" y="50" width="152" height="8" fill="#b07219"/>
+  <rect x="177" y="50" width="54" height="8" fill="#41b883"/>
+  <rect x="231" y="50" width="25" height="8" fill="#3178c6"/>
   <rect x="256" y="50" width="14" height="8" fill="#f1e05a"/>
   <rect x="270" y="50" width="2" height="8" fill="#c6538c"/>
   <rect x="272" y="50" width="2" height="8" fill="#e34c26"/>
   <circle cx="30" cy="80" r="5" fill="#b07219"/>
-  <text x="42" y="84" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">Java 60.46%</text>
+  <text x="42" y="84" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">Java 60.70%</text>
   <circle cx="30" cy="102" r="5" fill="#41b883"/>
-  <text x="42" y="106" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">Vue 21.33%</text>
+  <text x="42" y="106" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">Vue 21.73%</text>
   <circle cx="30" cy="124" r="5" fill="#3178c6"/>
-  <text x="42" y="128" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">TypeScript 10.68%</text>
+  <text x="42" y="128" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">TypeScript 9.93%</text>
   <circle cx="165" cy="80" r="5" fill="#f1e05a"/>
-  <text x="177" y="84" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">JavaScript 5.54%</text>
+  <text x="177" y="84" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">JavaScript 5.58%</text>
   <circle cx="165" cy="102" r="5" fill="#c6538c"/>
-  <text x="177" y="106" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">SCSS 0.74%</text>
+  <text x="177" y="106" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">SCSS 0.78%</text>
   <circle cx="165" cy="124" r="5" fill="#e34c26"/>
-  <text x="177" y="128" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">HTML 0.57%</text>
-  <text x="25" y="152" fill="#8B949E" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="10">from qualitest-hq · 3 public repos · auto</text>
+  <text x="177" y="128" fill="#C9D1D9" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="11">HTML 0.61%</text>
+  <text x="25" y="152" fill="#8B949E" font-family="Segoe UI, Ubuntu, Sans-Serif" font-size="10">38680050 @ qualitest-hq · 3/3 repos · author-weighted</text>
 </svg>

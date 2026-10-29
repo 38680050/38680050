@@ -77,19 +77,22 @@ Hi，我是 **kanfengjingren（38680050）**，偏全栈的开发者：以 **Jav
 
 ### 📊 GitHub 数据
 
-> 卡片由 Actions **每日刷新**（也可手动跑 `Update Profile Stats`）。
+> 卡片由 Actions **每日刷新**（也可手动跑 `Update Profile Stats`）。  
+> 上方 Stats 的提交数已含公开组织贡献；Stars 仍仅计个人名下仓库。  
+> 语言分布：**个人公开仓（全量）** + 组织 [qualitest-hq](https://github.com/qualitest-hq) **按我增删行占比加权**。
 
 <div align="center">
   <img height="165" src="https://raw.githubusercontent.com/38680050/38680050/main/assets/stats.svg" alt="stats"/>
+  <img height="165" src="https://raw.githubusercontent.com/38680050/38680050/main/assets/my-langs.svg" alt="my languages"/>
 </div>
 
 <br/>
 
-<p align="center"><b>语言分布</b>：个人公开仓（左） · 组织 <a href="https://github.com/qualitest-hq">qualitest-hq</a>（右）</p>
+<p align="center"><b>明细</b>：个人公开仓（左） · 我在 qualitest-hq 的份额（右）</p>
 
 <div align="center">
   <img height="165" src="https://raw.githubusercontent.com/38680050/38680050/main/assets/personal-langs.svg" alt="personal langs"/>
-  <img height="165" src="https://raw.githubusercontent.com/38680050/38680050/main/assets/qualitest-langs.svg" alt="qualitest langs"/>
+  <img height="165" src="https://raw.githubusercontent.com/38680050/38680050/main/assets/qualitest-langs.svg" alt="my qualitest share"/>
 </div>
 
 <br/>

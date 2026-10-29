@@ -16,8 +16,8 @@ replacements = [
     ),""",
         """    "green": dict(
         levels=["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-        snake="#ff7b72", head="#ffd8d3",
-        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],
+        snake="#da3633", head="#9b1c1c",
+        ramp=[(1, "#9b1c1c"), (4, "#da3633"), (10, "#f85149"), (21, "#ff7b72")],
         text="#57606a", frame_bg="#ffffff", frame_border="#d0d7de",
     ),""",
     ),
@@ -30,8 +30,8 @@ replacements = [
     ),""",
         """    "matrix": dict(
         levels=["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-        snake="#ff7b72", head="#ffd8d3",
-        ramp=[(1, "#ffd8d3"), (4, "#ff7b72"), (10, "#f85149"), (21, "#da3633")],
+        snake="#da3633", head="#9b1c1c",
+        ramp=[(1, "#9b1c1c"), (4, "#da3633"), (10, "#f85149"), (21, "#ff7b72")],
         text="#7d8590", frame_bg="#0d1117", frame_border="#30363d",
     ),""",
     ),

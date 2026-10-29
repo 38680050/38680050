@@ -101,9 +101,9 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/38680050/38680050/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/38680050/38680050/output/github-contribution-grid-snake.svg">
-    <img alt="github contribution snake" src="https://raw.githubusercontent.com/38680050/38680050/output/github-contribution-grid-snake.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/38680050/38680050/output/github-contribution-grid-snake-dark.svg?v=20261029-darkhead">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/38680050/38680050/output/github-contribution-grid-snake.svg?v=20261029-darkhead">
+    <img alt="github contribution snake" src="https://raw.githubusercontent.com/38680050/38680050/output/github-contribution-grid-snake.svg?v=20261029-darkhead">
   </picture>
 </div>
 

@@ -56,6 +56,8 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
 
 ### 📊 GitHub 数据
 
+> 左侧「最常用语言」只统计**个人名下仓库**；质衡主仓在组织 [`qualitest-hq`](https://github.com/qualitest-hq)，语言以 **Java / Vue / TypeScript** 为主，不会出现在这张个人统计卡里。
+
 <div align="center">
   <img height="165" src="https://github-stats-extended.vercel.app/api?username=38680050&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&ring_color=238636" alt="stats"/>
   <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs/?username=38680050&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9" alt="langs"/>
@@ -67,6 +69,14 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
   <img src="https://streak-stats.demolab.com/?user=38680050&theme=github-dark-blue&hide_border=true&background=0D1117&ring=238636&fire=3FB950&currStreakLabel=58A6FF" alt="streak"/>
 </div>
 
+<p align="center">
+  <b>质衡 Qualitest 主仓语言</b><br/>
+  <img src="https://img.shields.io/badge/Java-后端主力-ED8B00?style=flat-square&logo=openjdk&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vue-前端主力-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-工具链-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-配套-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
+</p>
+
 ---
 
 ### 🚀 精选项目
@@ -74,14 +84,14 @@ Hi，我是一名专注 **Java 后端** 与 **自动化测试** 的开发者。
 | 项目 | 简介 | 技术 |
 |:-----|:-----|:-----|
 | [excel-formula-calculation](https://github.com/38680050/excel-formula-calculation) | 模拟 Excel 公式计算引擎 | Java |
-| [spider](https://github.com/38680050/spider) | 小说爬虫实验项目 | Java |
+| [qualitest](https://github.com/qualitest-hq/qualitest) | 质衡 — 企业级 API 测试与测试流编排平台 | Java · Vue · TypeScript |
 
 <div align="center">
   <a href="https://github.com/38680050/excel-formula-calculation">
     <img src="https://github-stats-extended.vercel.app/api/pin/?username=38680050&repo=excel-formula-calculation&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9" alt="excel-formula-calculation"/>
   </a>
-  <a href="https://github.com/38680050/spider">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=38680050&repo=spider&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9" alt="spider"/>
+  <a href="https://github.com/qualitest-hq/qualitest">
+    <img src="https://github-stats-extended.vercel.app/api/pin/?username=qualitest-hq&repo=qualitest&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9" alt="qualitest"/>
   </a>
 </div>
 
